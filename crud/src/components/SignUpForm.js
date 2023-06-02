@@ -138,7 +138,7 @@ export const ChangePost = () => {
   );
 };
 
-//포스트 삭제
+//포스트 삭제 : 해당 post
 export const DeletePost = () => {
   const onDelete = () => {
     deletePostApi();
