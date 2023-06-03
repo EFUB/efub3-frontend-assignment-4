@@ -47,7 +47,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <Root>
       <h1>로그인</h1>
       <Form>
         <div>이름</div>
@@ -60,9 +60,15 @@ const Login = () => {
         ></input>
         <Button onClick={onLogin}>회원가입</Button>
       </Form>
-    </div>
+    </Root>
   );
 };
+
+const Root = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const Form = styled.div`
   display: flex;

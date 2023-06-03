@@ -50,7 +50,7 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <Root>
       <h1>회원가입</h1>
       <Form>
         <div>이름</div>
@@ -65,9 +65,15 @@ const SignUp = () => {
         <input type="text" value={nickname} onChange={onNicknameChange}></input>
         <Button onClick={onSignUp}>회원가입</Button>
       </Form>
-    </div>
+    </Root>
   );
 };
+
+const Root = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const Form = styled.div`
   display: flex;
