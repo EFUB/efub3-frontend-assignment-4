@@ -29,6 +29,11 @@ const CreatePage = () => {
   //전체 게시글용
   const [alldata, setAllData] = useState([]);
 
+  const [newCon, setNewCon] = useState("");
+
+  //좋아요
+  const [like, setLike] = useState(0);
+
   //전체 게시글 가져오기
   const allData = async () => {
     try {
@@ -70,6 +75,7 @@ const CreatePage = () => {
     setId1("");
     setPassword1("");
   };
+
   //게시글 올리기
   const onUploadImage = (e) => {
     setFile(e.target.files[0]);
@@ -83,6 +89,39 @@ const CreatePage = () => {
     allData();
     //이거 없으면 post 해도 안 뜸 (정보 받아온 다음에 띄워야하므로 async 사용)
   };
+
+  // 게시글 수정하기
+  // const handleUpdate = async (targetId, newContent) => {
+  //   try {
+  //     const updatedContent = {
+  //       title: title,
+  //       content: newContent,
+  //     };
+  //     await EditApi(targetId, updatedContent);
+  //     await allData();
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+  // const onEdit = async (e) => {
+  //   e.preventDefault();
+  //   const res = await EditApi(postkey, newCon);
+  //   console.log(res);
+  //   allData();
+  // };
+  // const onDelete = (targetId)=>{
+  //  const newKey =alldata.filter((data)=> data.postId === targetId)
+  // setPostkey(newKey)
+  // }
+
+  //   //좋아요 기능
+  // const addLike = async (e) => {
+  //   e.preventDefault();
+
+  //   const res = await Heart(postId);
+  //   console.log(res);
+
+  // };
 
   return (
     <div>
@@ -160,6 +199,23 @@ const CreatePage = () => {
         </button>
       </form>
 
+      {/* 수정하기
+      <form>
+        {/* <input
+          type="text"
+          placeholder="postId"
+          value={postkey}
+          onChange={(e) => setPostkey(e.target.value)}
+        /> */}
+      {/* <input
+          type="text"
+          placeholder="바꿀내용"
+          value={newCon}
+          onChange={(e) => setNewCon(e.target.value)}
+        />
+        <button onClick={() => handleUpdate(postkey, newCon)}>수정하기</button>
+      </form> */}
+
       {/* 전체 게시글 보기 */}
       <div>
         {alldata.map((item) => (
@@ -168,7 +224,10 @@ const CreatePage = () => {
             <p>{item.content}</p>
 
             <img src={item.image} style={{ width: "100px", height: "100px" }} />
-            {/* <button onClick={() => setPostkey(item.postId)}>수정</button> */}
+            <button>
+              <Link to={`detail/${item.postId}`}>상세조회</Link>
+            </button>
+            {/* <button onClick={}>좋아요</button> */}
           </div>
         ))}
       </div>

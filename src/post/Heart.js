@@ -1,14 +1,14 @@
 import client from "../Client";
-import React, { useState, useEffect } from "react";
-
-export const postDetail = async (postkey) => {
+export const LoginApi = async (postId) => {
   try {
-    const res = await client.get(`/posts/${postkey}`);
+    const res = await client.post(`/hearts/${postId}`, {
+      userName: userName,
+      password: password,
+    });
     console.log(res);
 
     const token = res.data.accessToken;
     localStorage.setItem("efubtoken", token);
-
     return res;
   } catch (err) {
     console.log(err);
