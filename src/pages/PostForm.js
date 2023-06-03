@@ -29,6 +29,7 @@ const PostForm = () => {
       });
 
       console.log(res);
+      if (res.status === 201) navigate("/posts");
       return res;
     } catch (err) {
       console.log(err);
@@ -37,8 +38,7 @@ const PostForm = () => {
 
   const onUpload = async () => {
     const request = { title: title, content: content };
-    const res = await writePost(request, image);
-    if (res.status === 201) navigate("/posts");
+    await writePost(request, image);
   };
   return (
     <Root>
