@@ -9,59 +9,50 @@ import {
   newPostApi,
   changePostApi,
   deletePostApi,
+  heartApi,
 } from "../axios/api";
 
-// export const SignUpForm = () => {
-//   useEffect(() => {
-//     SignUpApi("하핳", "12345678", "하하핳");
-//   }, []);
-//   return <div>회원가입</div>;
-// };
-
-export const LoginForm = () => {
+//회원가입
+export const SignUpForm = () => {
   useEffect(() => {
-    LoginApi("하핳", "12345678");
+    SignUpApi("하핳", "12345678", "하하핳");
   }, []);
-  return <div>로그인</div>;
+
+  const SignUp = () => {
+    SignUpApi();
+  };
+  return <button onClick={SignUp}>회원가입</button>;
+};
+
+//로그인
+export const LoginForm = () => {
+  const login = () => {
+    LoginApi("하핳", "12345678");
+  };
+  return <button onClick={login}>로그인</button>;
 };
 
 export const JWTForm = () => {
-  useEffect(() => {
-    JWTApi();
-  }, []);
-  return <div>JWT</div>;
+  const jwt = async () => {
+    await JWTApi();
+  };
+  return <button onClick={jwt}>jwt</button>;
 };
 
 //전체 포스트 조회
-// export const Post = () => {
-//   const [post, setPost] = useState([]);
-//   useEffect(() => {
-//     const datata = PostApi();
-//     console.log("datatata", datata);
-//   }, []);
-//   return <div>PostApi</div>;
-// };
-
 export const Post = () => {
-  const [post, setPost] = useState([]);
-
-  useEffect(() => {
-    const datata = PostApi();
-    console.log(datata);
-  });
-
-  // useEffect(() => {
-  //   console.log("post", post);
-  // }, [post]);
-
-  return <div>all posts</div>;
+  const post = async () => {
+    await PostApi();
+  };
+  return <button onClick={post}>전체 포스트 조회</button>;
 };
 
+//개별 포스트 조회
 export const PostDetail = () => {
-  useEffect(() => {
-    PostDetailApi();
-  }, []);
-  return <div>PostDetailApi</div>;
+  const postdetail = async () => {
+    await PostDetailApi();
+  };
+  return <button onClick={postdetail}>개별 포스트 조회</button>;
 };
 
 //새로운 포스트
@@ -146,4 +137,10 @@ export const DeletePost = () => {
   return <button onClick={onDelete}>삭제</button>;
 };
 
-//
+//게시글 좋아요 기능
+export const Heart = () => {
+  const onLike = () => {
+    heartApi();
+  };
+  return <button onClick={onLike}>좋아요</button>;
+};

@@ -41,6 +41,7 @@ export const JWTApi = async () => {
 export const PostDetailApi = async () => {
   try {
     const res = await client.get("/posts/3");
+    console.log(res);
   } catch (error) {
     console.log(error);
   }
@@ -49,6 +50,7 @@ export const PostDetailApi = async () => {
 export const PostApi = async () => {
   try {
     const res = await client.get("/posts");
+    console.log(res);
   } catch (error) {
     console.log(error);
   }
@@ -96,5 +98,14 @@ export const deletePostApi = async () => {
     console.log(res);
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const heartApi = async () => {
+  try {
+    const res = await client.post("/hearts/46");
+    console.log(res);
+  } catch (err) {
+    console.log(err);
   }
 };
