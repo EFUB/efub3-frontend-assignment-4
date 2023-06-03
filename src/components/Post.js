@@ -1,15 +1,23 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const Post = ({ post }) => {
   return (
-    <Container>
-      <Title>{post.title}</Title>
-      <Nickname>{post.nickname}</Nickname>
-      <Date>{post.createdAt.substring(0, 10)}</Date>
-    </Container>
+    <NLink to={`/posts/${post.postId}`}>
+      <Container>
+        <Title>{post.title}</Title>
+        <Nickname>{post.nickname}</Nickname>
+        <Date>{post.createdAt.substring(0, 10)}</Date>
+      </Container>
+    </NLink>
   );
 };
+
+const NLink = styled(NavLink)`
+  text-decoration: none;
+  color: black;
+`;
 
 const Container = styled.div`
   display: flex;

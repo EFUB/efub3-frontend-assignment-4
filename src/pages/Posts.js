@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Post from "../components/Post";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 const Posts = () => {
   const [posts, setPosts] = useState();
@@ -18,8 +19,8 @@ const Posts = () => {
     client.defaults.headers.common["Authorization"]
   );
 
-  //게시물 get
-  const getPost = async () => {
+  //전체 전체게시글 get
+  const getPosts = async () => {
     try {
       const res = await client.get("/posts");
       console.log("readPost: ", res.data);
@@ -30,7 +31,7 @@ const Posts = () => {
   };
 
   useEffect(() => {
-    getPost();
+    getPosts();
   }, []);
 
   return (

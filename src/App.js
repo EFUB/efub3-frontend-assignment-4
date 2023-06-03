@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Nav from "./components/Nav";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Posts from "./pages/Posts";
+import Detail from "./pages/Detail";
 
 function App() {
   //axios instance 생성
@@ -55,6 +56,7 @@ function App() {
           <Route path="/" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/posts" element={<Posts />} />
+          <Route path="/posts/:postId" element={<Detail />} />
         </Routes>
       </BrowserRouter>
     </div>
