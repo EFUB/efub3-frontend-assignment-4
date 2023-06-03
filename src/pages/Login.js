@@ -51,13 +51,9 @@ const Login = () => {
       <h1>로그인</h1>
       <Form>
         <div>이름</div>
-        <input type="text" value={userName} onChange={onUserNameChange}></input>
+        <input type="text" value={userName} onChange={onUserNameChange} />
         <div>비밀번호</div>
-        <input
-          type="password"
-          value={password}
-          onChange={onPasswordChange}
-        ></input>
+        <input type="password" value={password} onChange={onPasswordChange} />
         <Button onClick={onLogin}>회원가입</Button>
       </Form>
     </Root>

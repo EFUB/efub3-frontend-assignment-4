@@ -35,27 +35,43 @@ const Posts = () => {
   }, []);
 
   return (
-    <Container>
-      <h1>게시판</h1>
-      <PostList>
-        {posts ? (
-          posts.map((post) => <Post key={post.postId} post={post} />)
-        ) : (
-          <div>loading</div>
-        )}
-      </PostList>
-    </Container>
+    <Root>
+      <Container>
+        <h1>게시판</h1>
+        <Button to="/post-form">글쓰기</Button>
+        <PostList>
+          {posts ? (
+            posts.map((post) => <Post key={post.postId} post={post} />)
+          ) : (
+            <div>loading</div>
+          )}
+        </PostList>
+      </Container>
+    </Root>
   );
 };
+
+const Root = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-`;
-
-const PostList = styled.div`
   width: 700px;
 `;
+
+const Button = styled(NavLink)`
+  margin: 20px;
+  margin-left: auto;
+  color: black;
+  text-decoration: none;
+  border-radius: 10px;
+  outline: 1px solid lightgrey;
+  padding: 7px 10px;
+`;
+
+const PostList = styled.div``;
 
 export default Posts;

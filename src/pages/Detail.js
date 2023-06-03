@@ -45,7 +45,7 @@ const Detail = () => {
           </Header>
 
           <Body>
-            <Contents>{post.content}</Contents>
+            <Content>{post.content}</Content>
             <Image src={post.image} />
           </Body>
 
@@ -92,7 +92,7 @@ const Body = styled.div`
   padding: 20px;
 `;
 
-const Contents = styled.div`
+const Content = styled.div`
   padding: 10px;
 `;
 

@@ -6,6 +6,7 @@ import Nav from "./components/Nav";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Posts from "./pages/Posts";
 import Detail from "./pages/Detail";
+import PostForm from "./pages/PostForm";
 
 function App() {
   //axios instance 생성
@@ -19,19 +20,6 @@ function App() {
     "현재 설정된 토큰: ",
     client.defaults.headers.common["Authorization"]
   );
-
-  //게시물 post
-  const writePost = async (title, content) => {
-    try {
-      const res = await client.post("/posts", {
-        title: title,
-        content: content,
-      });
-      console.log("writePost: ", res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   // useEffect(() => {
   //   login("jeongmin11", "987654321");
@@ -57,6 +45,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/posts/:postId" element={<Detail />} />
+          <Route path="/post-form" element={<PostForm />} />
         </Routes>
       </BrowserRouter>
     </div>

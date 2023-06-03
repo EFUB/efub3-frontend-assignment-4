@@ -54,15 +54,11 @@ const SignUp = () => {
       <h1>회원가입</h1>
       <Form>
         <div>이름</div>
-        <input type="text" value={userName} onChange={onUserNameChange}></input>
+        <input type="text" value={userName} onChange={onUserNameChange} />
         <div>비밀번호</div>
-        <input
-          type="password"
-          value={password}
-          onChange={onPasswordChange}
-        ></input>
+        <input type="password" value={password} onChange={onPasswordChange} />
         <div>닉네임</div>
-        <input type="text" value={nickname} onChange={onNicknameChange}></input>
+        <input type="text" value={nickname} onChange={onNicknameChange} />
         <Button onClick={onSignUp}>회원가입</Button>
       </Form>
     </Root>
