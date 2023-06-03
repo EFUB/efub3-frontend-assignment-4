@@ -152,19 +152,6 @@ const CreatePage = () => {
           게시하기
         </button>
       </form>
-      {/* 게시글 상세 조회하기 */}
-      <form>
-        <input
-          type="text"
-          placeholder="PostId"
-          value={postkey}
-          onChange={(e) => setPostkey(e.target.value)}
-        />
-
-        <button>
-          <Link to={`detail/${postkey}`}>확인</Link>
-        </button>
-      </form>
 
       {/* 수정하기
       <form>
