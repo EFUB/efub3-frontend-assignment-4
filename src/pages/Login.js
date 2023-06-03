@@ -47,7 +47,7 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button onClick={onLogin}>회원가입</Button>
+        <Button onClick={onLogin}>로그인</Button>
       </Form>
     </Root>
   );
