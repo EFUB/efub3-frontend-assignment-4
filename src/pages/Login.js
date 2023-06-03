@@ -2,8 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import client from "../api/client";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,13 +21,14 @@ const Login = () => {
       console.log("login: ", res);
       const token = res.data.accessToken;
       localStorage.setItem("efubtoken", token);
+      if (res.status === 200) navigate("/posts");
     } catch (error) {
       console.log(error);
     }
   };
 
-  const onLogin = () => {
-    login(userName, password);
+  const onLogin = async () => {
+    await login(userName, password);
   };
 
   return (
