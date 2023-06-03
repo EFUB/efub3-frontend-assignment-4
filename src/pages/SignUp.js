@@ -1,23 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import client from "../client";
 
 const SignUp = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");
-
-  //axios instance 생성
-  const client = axios.create();
-  client.defaults.baseURL = "https://frontserver.efub.co.kr";
-  client.defaults.withCredentials = true;
-
-  const token = localStorage.getItem("efubtoken");
-  client.defaults.headers.common["Authorization"] = token ? token : null;
-  console.log(
-    "현재 설정된 토큰: ",
-    client.defaults.headers.common["Authorization"]
-  );
 
   //회원가입
   const register = async (userName, password, nickname) => {

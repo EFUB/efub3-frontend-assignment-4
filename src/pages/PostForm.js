@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
+import client from "../client";
 
 const PostForm = () => {
   const [title, setTitle] = useState("");
@@ -9,18 +10,6 @@ const PostForm = () => {
   const [image, setImage] = useState(null);
 
   const navigate = useNavigate();
-
-  //axios instance 생성
-  const client = axios.create();
-  client.defaults.baseURL = "https://frontserver.efub.co.kr";
-  client.defaults.withCredentials = true;
-
-  const token = localStorage.getItem("efubtoken");
-  client.defaults.headers.common["Authorization"] = token ? token : null;
-  console.log(
-    "현재 설정된 토큰: ",
-    client.defaults.headers.common["Authorization"]
-  );
 
   //게시글 등록
   const writePost = async (request, image) => {

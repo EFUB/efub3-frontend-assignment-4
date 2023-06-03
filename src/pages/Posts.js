@@ -3,21 +3,10 @@ import axios from "axios";
 import Post from "../components/Post";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import client from "../client";
 
 const Posts = () => {
   const [posts, setPosts] = useState();
-
-  //axios instance 생성
-  const client = axios.create();
-  client.defaults.baseURL = "https://frontserver.efub.co.kr";
-  client.defaults.withCredentials = true;
-
-  const token = localStorage.getItem("efubtoken");
-  client.defaults.headers.common["Authorization"] = token ? token : null;
-  console.log(
-    "현재 설정된 토큰: ",
-    client.defaults.headers.common["Authorization"]
-  );
 
   //전체 전체게시글 get
   const getPosts = async () => {

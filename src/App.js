@@ -9,33 +9,6 @@ import Detail from "./pages/Detail";
 import PostForm from "./pages/PostForm";
 
 function App() {
-  //axios instance 생성
-  const client = axios.create();
-  client.defaults.baseURL = "https://frontserver.efub.co.kr";
-  client.defaults.withCredentials = true;
-
-  const token = localStorage.getItem("efubtoken");
-  client.defaults.headers.common["Authorization"] = token ? token : null;
-  console.log(
-    "현재 설정된 토큰: ",
-    client.defaults.headers.common["Authorization"]
-  );
-
-  // useEffect(() => {
-  //   login("jeongmin11", "987654321");
-  //   readPost();
-
-  //   const request = { title: "jeongmin's first post", content: "blablablabla" };
-  //   const formData = new FormData();
-  //   formData.append("image", "/image.png");
-  //   formData.append(
-  //     "request",
-  //     new Blob([JSON.stringify(request)], { type: "application/json" })
-  //   );
-
-  //   writePost();
-  // }, []);
-
   return (
     <div className="App">
       <BrowserRouter>
