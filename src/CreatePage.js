@@ -90,39 +90,6 @@ const CreatePage = () => {
     //이거 없으면 post 해도 안 뜸 (정보 받아온 다음에 띄워야하므로 async 사용)
   };
 
-  // 게시글 수정하기
-  // const handleUpdate = async (targetId, newContent) => {
-  //   try {
-  //     const updatedContent = {
-  //       title: title,
-  //       content: newContent,
-  //     };
-  //     await EditApi(targetId, updatedContent);
-  //     await allData();
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-  // const onEdit = async (e) => {
-  //   e.preventDefault();
-  //   const res = await EditApi(postkey, newCon);
-  //   console.log(res);
-  //   allData();
-  // };
-  // const onDelete = (targetId)=>{
-  //  const newKey =alldata.filter((data)=> data.postId === targetId)
-  // setPostkey(newKey)
-  // }
-
-  //   //좋아요 기능
-  // const addLike = async (e) => {
-  //   e.preventDefault();
-
-  //   const res = await Heart(postId);
-  //   console.log(res);
-
-  // };
-
   return (
     <div>
       <div>
