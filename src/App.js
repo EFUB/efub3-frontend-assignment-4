@@ -2,8 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
-import Nav from "./Nav";
+import Nav from "./components/Nav";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Posts from "./pages/Posts";
 
 function App() {
   //axios instance 생성
@@ -17,16 +18,6 @@ function App() {
     "현재 설정된 토큰: ",
     client.defaults.headers.common["Authorization"]
   );
-
-  //게시물 get
-  const readPost = async () => {
-    try {
-      const res = await client.get("/posts");
-      console.log("readPost: ", res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   //게시물 post
   const writePost = async (title, content) => {
@@ -63,6 +54,7 @@ function App() {
         <Routes>
           <Route path="/" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/posts" element={<Posts />} />
         </Routes>
       </BrowserRouter>
     </div>
