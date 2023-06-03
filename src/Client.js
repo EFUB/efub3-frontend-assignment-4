@@ -15,3 +15,6 @@ console.log(
 );
 
 export default client;
+
+// Axios를 사용하여 HTTP 요청을 보낼 때 기본 설정을 구성하고,
+// 인증 토큰을 요청 헤더에 자동으로 추가하는 역할

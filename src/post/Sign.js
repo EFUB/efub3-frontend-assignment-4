@@ -1,4 +1,4 @@
-import client from "./Client";
+import client from "../Client";
 
 export const SignApi = async (userName, password, nickname) => {
   try {
