@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
-import client from "../client";
+import client from "../api/client";
 
 const PostForm = () => {
   const [title, setTitle] = useState("");

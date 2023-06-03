@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import client from "../client";
+import client from "../api/client";
 
 const SignUp = () => {
   const [userName, setUserName] = useState("");
@@ -22,18 +22,6 @@ const SignUp = () => {
     }
   };
 
-  const onUserNameChange = (event) => {
-    setUserName(event.target.value);
-  };
-
-  const onPasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const onNicknameChange = (event) => {
-    setNickname(event.target.value);
-  };
-
   const onSignUp = () => {
     register(userName, password, nickname);
   };
@@ -43,11 +31,23 @@ const SignUp = () => {
       <h1>회원가입</h1>
       <Form>
         <div>이름</div>
-        <input type="text" value={userName} onChange={onUserNameChange} />
+        <input
+          type="text"
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+        />
         <div>비밀번호</div>
-        <input type="password" value={password} onChange={onPasswordChange} />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <div>닉네임</div>
-        <input type="text" value={nickname} onChange={onNicknameChange} />
+        <input
+          type="text"
+          value={nickname}
+          onChange={(e) => setNickname(e.target.value)}
+        />
         <Button onClick={onSignUp}>회원가입</Button>
       </Form>
     </Root>

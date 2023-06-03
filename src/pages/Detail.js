@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
-import client from "../client";
+import client from "../api/client";
 
 const Detail = () => {
   const { postId } = useParams();

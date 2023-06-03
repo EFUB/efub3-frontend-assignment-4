@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import client from "../client";
+import client from "../api/client";
 
 const Login = () => {
   const [userName, setUserName] = useState("");
@@ -23,14 +23,6 @@ const Login = () => {
     }
   };
 
-  const onUserNameChange = (event) => {
-    setUserName(event.target.value);
-  };
-
-  const onPasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
   const onLogin = () => {
     login(userName, password);
   };
@@ -40,9 +32,17 @@ const Login = () => {
       <h1>로그인</h1>
       <Form>
         <div>이름</div>
-        <input type="text" value={userName} onChange={onUserNameChange} />
+        <input
+          type="text"
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+        />
         <div>비밀번호</div>
-        <input type="password" value={password} onChange={onPasswordChange} />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <Button onClick={onLogin}>회원가입</Button>
       </Form>
     </Root>

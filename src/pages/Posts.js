@@ -3,7 +3,7 @@ import axios from "axios";
 import Post from "../components/Post";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import client from "../client";
+import client from "../api/client";
 
 const Posts = () => {
   const [posts, setPosts] = useState();
