@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import client from "../api/client";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");
@@ -17,13 +20,14 @@ const SignUp = () => {
         nickname: nickname,
       });
       console.log(res);
+      if (res.status === 201) navigate("/login");
     } catch (error) {
       console.log(error);
     }
   };
 
-  const onSignUp = () => {
-    register(userName, password, nickname);
+  const onSignUp = async () => {
+    await register(userName, password, nickname);
   };
 
   return (
